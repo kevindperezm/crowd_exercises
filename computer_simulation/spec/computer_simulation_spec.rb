@@ -1,5 +1,6 @@
 
-require '../computer_simulation'
+require_relative '../lib/random_generators/generators'
+require_relative '../lib/coin_flip'
 
 describe Generators::Multiplicative do
 	
@@ -21,6 +22,19 @@ describe Generators::Multiplicative do
 				last_number.should_not eql new_number
 				last_number = new_number
 			end
+		end
+	end
+
+end
+
+describe CoinFlip do
+
+	describe '#prepare_initial_bet' do
+		it "sets @bet to the value of @initial_bet" do
+			generator = Generators::Multiplicative.new
+			initial_bet = 25
+			game = CoinFlip.new generator: generator, initial_bet: initial_bet, amount: 1000
+			game.send(:prepare_initial_bet).should eql initial_bet
 		end
 	end
 
