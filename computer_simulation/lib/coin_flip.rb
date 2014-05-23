@@ -11,7 +11,9 @@ class CoinFlip
   private
 
   def validate_option(name, value, &block) 
-    raise ArgumentError, "You must pass a valid #{name.to_sym}." if value.nil? || (block && yield(value))
+    if !value || (block && yield(value))
+      raise ArgumentError, "You must pass a valid #{name.to_sym}." 
+    end
     value
   end
 
@@ -20,17 +22,21 @@ class CoinFlip
   end
 
   def start_game
-    game_duration.times do |bet_number|
-      before_flip_coin bet_number
-      coin_flip!
-      if won_coin_flip?
-        win_bet!
-      else
-        lose_bet!
-      end
-      after_flip_coin bet_number
+    game_duration.times do |bet_number| 
+      play_turn bet_number 
       break if player_broken?
     end
+  end
+
+  def play_turn(bet_number)
+    before_flip_coin bet_number
+    coin_flip!
+    if won_coin_flip?
+      win_bet!
+    else
+      lose_bet!
+    end
+    after_flip_coin bet_number
   end
 
   def before_flip_coin(bet_number)
