@@ -2,8 +2,8 @@ class CoinFlip
  
   def initialize(options = {})
     @generator =  validate_option "generator", options[:generator] 
-    @initial_bet = validate_option "initial_bet", options[:initial_bet] { |value| value <= 0 }
-    @amount = validate_option "amount", options[:amount] { |value| value <= 0 }
+    @initial_bet = validate_option "initial_bet", options[:initial_bet] { |value| value > 0 }
+    @amount = validate_option "amount", options[:amount] { |value| value > 0 }
     @output_generator = options[:output]
     @turn_results = []
   end
@@ -11,7 +11,7 @@ class CoinFlip
   private
 
   def validate_option(name, value, &block) 
-    if !value || (block && yield(value))
+    if !value || (block && !yield(value))
       raise ArgumentError, "You must pass a valid #{name.to_sym}." 
     end
     value
@@ -21,17 +21,10 @@ class CoinFlip
     @bet = @initial_bet
   end
 
-  def start_game
-    game_duration.times do |bet_number| 
-      play_turn bet_number 
-      break if player_broken?
-    end
-  end
-
   def play_turn(bet_number)
     before_flip_coin bet_number
-    coin_flip!
-    if won_coin_flip?
+    number = coin_flip!
+    if won_coin_flip? number
       win_bet!
     else
       lose_bet!
@@ -50,8 +43,8 @@ class CoinFlip
     @turn_results[bet_number].merge!({
       amount_after_bet: @amount,
       pseudo_random: @random_number,
-      won: won_coin_flip?,
-      broke: player_broken?
+      won: won_coin_flip?(@random_number),
+      broke: player_broken?(@amount)
     }) if @turn_results[bet_number]
   end
 
@@ -70,15 +63,15 @@ class CoinFlip
     @random_number = @generator.next
   end
 
-  def won_coin_flip?
-    @random_number > 500
+  def won_coin_flip?(number)
+    number > 500
   end
 
-  def player_broken?
-    @amount <= 0
+  def player_broken?(amount)
+    amount <= 0
   end
 
-  def game_duration
+  def max_game_duration
     40 # Max game duration in turns
   end
 
@@ -90,7 +83,10 @@ class CoinFlip
 
   def play
     prepare_initial_bet
-    start_game
+    max_game_duration.times do |bet_number| 
+      play_turn bet_number 
+      break if player_broken? @amount
+    end
     generate_output
   end
   

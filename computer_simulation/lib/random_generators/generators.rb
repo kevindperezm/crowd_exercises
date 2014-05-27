@@ -5,6 +5,8 @@ module Generators
     SEED = 203
     MODULO = 100
     X0 = 9
+
+    attr_accessor :seed, :modulo, :x0
     
     def initialize(options = {})
     	@seed = options[:seed] || SEED
