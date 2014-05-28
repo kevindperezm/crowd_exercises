@@ -15,7 +15,7 @@ Here are listed the rules this app uses:
 * Repeat count for every repeated char is multiple of 2. (e.g. gaga => g = 2, a = 2)
 
 There are some exceptions scenarios for these rules:
-* In case of odd length, there can be 1 isolated char. (e.g. akako => akoka, kaoak)
+* In case of odd-length word, there can be 1 and just 1 isolated char. (e.g. akako => akoka, kaoak)
 * Because the isolated char isn't repeated in the word, it doesn't count as a repeated char.
 
 Authors
