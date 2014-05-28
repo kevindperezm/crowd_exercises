@@ -10,12 +10,12 @@ Rules for palindromes
 Ir order to not use brute force, this app needs rules to decide whether the chars of a specific string can be rearranged to create a palindrome string or not. If a given string fits this rules then it can be used to generate palindromes. If not, it can't.
 
 Here are listed the rules this app uses:
-* String has 2 or more chars in length.
+* String has 2 or more chars in size.
 * String repeats at least 2 times every char. (e.g. gaga => gaag, agga)
 * Repeat count for every repeated char is multiple of 2. (e.g. gaga => g = 2, a = 2)
 
 There are some exceptions scenarios for these rules:
-* In case of odd-length string, there can be 1 and just 1 isolated char. (e.g. akako => akoka, kaoak)
+* In case of odd-size string, there can be 1 and just 1 isolated char. (e.g. akako => akoka, kaoak)
 * Because the isolated char isn't repeated in the string, it doesn't count as a repeated char.
 
 Authors
