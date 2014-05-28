@@ -4,4 +4,7 @@ RSpec.configure do |config|
   config.filter_run :focus
   config.order = 'random'
 end
-require './lib/matchers/palindrome_matcher'
+require './lib/validators/length_validator'
+require './lib/validators/repeated_chars_validator'
+require './lib/validators/repetition_count_validator'
+# require './lib/matchers/palindrome_matcher'
