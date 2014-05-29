@@ -10,5 +10,5 @@ output = FileOutput.new 'output.txt'
 validators = [LengthValidator.new,
               RepeatedCharsValidator.new,
               EvenRepeatValidator.new]
-generator = PalindromeGenerator.new 'test_input.txt', output, validators
+generator = PalindromeGenerator.new 'input.txt', output, validators
 generator.run # Here we go!

@@ -26,4 +26,19 @@ describe PalindromeGenerator do
       expect(pal_gen.generate_palindrome 'qadws').to be_false
     end
   end
+
+  context '#palindrome?' do
+    it 'returns true when string is a palindrome, like "ana"' do
+      expect(pal_gen.palindrome? 'ana').to be_true
+    end
+    it 'returns true when string is not a palindrome, like "aero"' do
+      expect(pal_gen.palindrome? 'aero').to be_false
+    end
+    it 'returns false with string "atgga"' do
+      expect(pal_gen.palindrome? 'atgga').to be_false
+    end
+    it 'returns false with string "gtaag"' do
+      expect(pal_gen.palindrome? 'gtaag').to be_false
+    end
+  end
 end
