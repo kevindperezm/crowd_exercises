@@ -6,7 +6,7 @@ describe PalindromeGenerator do
   let(:validators) do
     [LengthValidator.new, RepeatedCharsValidator.new, EvenRepeatValidator.new]
   end
-  let(:pal_gen) { PalindromeGenerator.new 'test_input.txt', nil, validators }
+  let(:pal_gen) { PalindromeGenerator.new validators }
 
   context '#generate_palindrome' do
     it 'generates a palindrome from useful even-size string' do
