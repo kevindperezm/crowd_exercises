@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 # Matcher for rule 'Repeat count for every char repetition is multiple of 2'
-class RepetitionCountValidator
+class EvenRepeatValidator
   def validate?(string)
     string.chars.all? { |char| check_char?(string, char) } ||
     isolated_chars(string).size == 1

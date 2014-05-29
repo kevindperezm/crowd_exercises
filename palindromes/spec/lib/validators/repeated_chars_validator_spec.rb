@@ -15,5 +15,8 @@ describe RepeatedCharsValidator do
     it 'returns false if odd-size string repeats a char less than 2 times' do
       expect(subject.validate? 'gagaddeextuuvdftpjn').to be_false
     end
+    it 'returns true for cases like "gaagaag"' do
+      expect(subject.validate? 'gaagaag').to be_true
+    end
   end
 end

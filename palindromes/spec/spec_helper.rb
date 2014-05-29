@@ -6,4 +6,4 @@ RSpec.configure do |config|
 end
 require './lib/validators/length_validator'
 require './lib/validators/repeated_chars_validator'
-require './lib/validators/repetition_count_validator'
+require './lib/validators/even_repeat_validator''

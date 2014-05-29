@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'spec_helper'
 
-describe RepetitionCountValidator do
+describe EvenRepeatValidator do
   context '#validate?' do
     it 'returns true if even-size string repeats each char even times' do
       expect(subject.validate? 'atgagaaddteaetuaut').to be_true
@@ -16,6 +16,9 @@ describe RepetitionCountValidator do
     it 'returns false if odd-size string repeats a repeated char odd times' \
     do
       expect(subject.validate? 'ggggaaaattrrrrrrt').to be_false
+    end
+    it 'returns true for cases like "gaagaag"' do
+      expect(subject.validate? 'gaagaag').to be_true
     end
   end
 end
