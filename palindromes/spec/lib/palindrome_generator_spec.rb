@@ -12,20 +12,22 @@ describe PalindromeGenerator do
 
   context '#generate_palindromes' do
     it 'generates a palindrome from useful even-size string' do
-      expect(gaga_palindromes.include? gen.generate_palindromes('gaga')[0]).to \
-      be_true
+      generated_palindromes = gen.generate_palindromes('gaga')
+      expect(gaga_palindromes.include? generated_palindromes[0]).to be_true
     end
     it 'generates a palindrome from useful odd-size string' do
-      expect(gagat_palindromes.include? gen.generate_palindromes('gagat')[0]).to \
-      be_true
+      generated_palindromes = gen.generate_palindromes('gagat')
+      expect(gagat_palindromes.include? generated_palindromes[0]).to be_true
     end
-    it 'returns false if impossible to make palindromes from even-size string' \
-    do
-      expect(gen.generate_palindromes 'qadw').to be_false
+    it 'raises PalindromeException if even-size string can\'t be used to build
+    palindromes' do
+      expect { gen.generate_palindromes 'qadw' }
+      .to raise_error { PalindromeException }
     end
-    it 'returns false if impossible to make palindromes from odd-size string' \
-    do
-      expect(gen.generate_palindromes 'qadws').to be_false
+    it 'raises PalindromeException if odd-size string can\'t be used to build
+    palindromes' do
+      expect { gen.generate_palindromes 'qadws' }
+      .to raise_error { PalindromeException }
     end
   end
 

@@ -16,7 +16,12 @@ class PalindromeGenerator
   end
 
   def generate_palindromes(string)
-    return false unless validate? string
+    fail PalindromeException, 'string can\'t be used to form palindromes' \
+    unless validate? string
     @engine.generate string
   end
+end
+
+# Exception when string can't be used to form palindromes
+class PalindromeException < Exception
 end

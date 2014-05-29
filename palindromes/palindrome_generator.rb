@@ -15,7 +15,11 @@ generator = PalindromeGenerator.new PalindromeEngine.new, validators
 
 lines_to_read = input.readline.chomp.to_i
 lines_to_read.times do
-  palindromes = generator.generate_palindromes(input.readline.chomp)
-  output.write(palindromes ? "#{palindromes[0]}\n" : "-1\n")
+  begin
+    palindromes = generator.generate_palindromes(input.readline.chomp)
+    output.write("#{palindromes[0]}\n")
+  rescue PalindromeException
+    output.write("-1\n")
+  end
 end
 output.close
