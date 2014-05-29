@@ -4,7 +4,7 @@
 class LengthValidator
   MIN_VALID_LENGTH = 2
 
-  def validate(string)
+  def validate?(string)
     string.length >= MIN_VALID_LENGTH
   end
 end

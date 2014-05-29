@@ -4,7 +4,7 @@
 class RepeatedCharsValidator
   MIN_REPEATED_TIMES = 2
 
-  def validate(string)
+  def validate?(string)
     string.chars.all? { |c| string.count(c) >= MIN_REPEATED_TIMES } ||
     isolated_chars(string).size == 1
   end
