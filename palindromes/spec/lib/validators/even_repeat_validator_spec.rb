@@ -21,5 +21,8 @@ describe EvenRepeatValidator do
     the rol of the isolated char' do
       expect(subject.validate? 'gaataag').to be_true
     end
+    it 'returns false for cases like "gaatfqaag"' do
+      expect(subject.validate? 'gaatfqaag').to be_false
+    end
   end
 end
