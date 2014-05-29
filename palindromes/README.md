@@ -18,6 +18,23 @@ There are some exceptions scenarios for these rules:
 * In case of odd-size string, there can be 1 and just 1 isolated char. (e.g. akako => akoka, kaoak)
 * The isolated char can be one of the repeated chars.
 
+Validators
+----------
+Rules for validating strings are implemented in the form of independent classes,
+called Validators. A new rule or set of rules can be easily added by creating a 
+new Validator and modifying the app to use it.
+
+Validators are located in lib/validators.
+
+Engines
+--------
+This app ensures the fact that there are many ways to do the same thing, in
+this case, to build palindromes from a string's chars. So, the logic of how
+to build palindromes is located in classes called Engines. Implementing a new
+algorithm is as easy as writting a new Engine and modifying the app to use it.
+
+Engines are located in lib/engines.
+
 Authors
 -------
 * Kevin Perez [kevin.perez@crowint.com](mailto:kevin.perez@crowdint.com)
