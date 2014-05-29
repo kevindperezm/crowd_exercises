@@ -7,3 +7,4 @@ end
 require './lib/validators/length_validator'
 require './lib/validators/repeated_chars_validator'
 require './lib/validators/even_repeat_validator'
+require './lib/palindrome_generator'

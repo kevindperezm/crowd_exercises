@@ -20,4 +20,8 @@ class PalindromeGenerator
   def validate?(string)
     @validators.all? { |validator| validator.validate?(string) }
   end
+
+  def generate_palindrome(string)
+    return false unless validate? string
+  end
 end
