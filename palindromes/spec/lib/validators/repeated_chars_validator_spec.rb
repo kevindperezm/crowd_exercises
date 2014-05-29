@@ -19,5 +19,9 @@ describe RepeatedCharsValidator do
     the rol of the isolated char' do
       expect(subject.validate? 'gaagaag').to be_true
     end
+    it 'returns true for cases like "gaataag", where a no-repeated char takes
+    the rol of the isolated char' do
+      expect(subject.validate? 'gaataag').to be_true
+    end
   end
 end
