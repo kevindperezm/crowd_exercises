@@ -2,7 +2,8 @@
 
 # Creates palindromes from string's chars of input file
 class PalindromeGenerator
-  def initialize(validators)
+  def initialize(engine, validators)
+    @engine = engine
     @validators = validators
   end
 
@@ -14,10 +15,8 @@ class PalindromeGenerator
     string == string.reverse
   end
 
-  def generate_palindrome(string)
+  def generate_palindromes(string)
     return false unless validate? string
-    chars = string.chars
-    #chars.shuffle! until palindrome? chars.join
-    chars.join
+    @engine.generate string
   end
 end
