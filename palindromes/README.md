@@ -16,7 +16,7 @@ Here are listed the rules this app uses:
 
 There are some exceptions scenarios for these rules:
 * In case of odd-size string, there can be 1 and just 1 isolated char. (e.g. akako => akoka, kaoak)
-* Because the isolated char isn't repeated in the string, it doesn't count as a repeated char.
+* The isolated char can be one of the repeated chars.
 
 Authors
 -------

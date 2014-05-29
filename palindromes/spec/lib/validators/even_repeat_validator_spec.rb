@@ -13,11 +13,8 @@ describe EvenRepeatValidator do
     do
       expect(subject.validate? 'ggggaaaattrrrrrry').to be_true
     end
-    it 'returns false if odd-size string repeats a repeated char odd times' \
-    do
-      expect(subject.validate? 'ggggaaaattrrrrrrt').to be_false
-    end
-    it 'returns true for cases like "gaagaag"' do
+    it 'returns true for cases like "gaagaag", where a repeated char takes
+    the rol of the isolated char' do
       expect(subject.validate? 'gaagaag').to be_true
     end
   end
