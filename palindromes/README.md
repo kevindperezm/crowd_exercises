@@ -24,6 +24,9 @@ Rules for validating strings are implemented in the form of independent classes,
 called Validators. A new rule or set of rules can be easily added by creating a 
 new Validator and modifying the app to use it.
 
+The default Validators implement each of the above rules, taking in count
+the above exceptions.
+
 Validators are located in lib/validators.
 
 Engines
@@ -32,6 +35,9 @@ This app ensures the fact that there are many ways to do the same thing, in
 this case, to build palindromes from a string's chars. So, the logic of how
 to build palindromes is located in classes called Engines. Implementing a new
 algorithm is as easy as writting a new Engine and modifying the app to use it.
+
+The default Engine implementation is a simple algorithm that always produces a 
+single palindrome for a given palindromic string.
 
 Engines are located in lib/engines.
 
