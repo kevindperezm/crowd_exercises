@@ -1,9 +1,9 @@
 # encoding: utf-8
 
-# Palindrome generator engine. Encapsulates palindrome generation logic.
-# This simple engine creates a palindrome by sorting the string's chars
-# and split them in two strings
-class PalindromeEngine
+# Basic palindrome generation algorithm.
+# This strategy creates a palindrome by sorting the string's chars
+# and split them in two strings.
+class BasicPalindromeStrategy
   def generate(string)
     chars = string.chars.sort
     isolated_char = chars.select { |c| chars.count(c).odd? }.uniq.join

@@ -29,17 +29,17 @@ the above exceptions.
 
 Validators are located in lib/validators.
 
-Engines
+Strategies
 --------
 This app ensures the fact that there are many ways to do the same thing, in
 this case, to build palindromes from a string's chars. So, the logic of how
-to build palindromes is located in classes called Engines. Implementing a new
-algorithm is as easy as writting a new Engine and modifying the app to use it.
+to build palindromes is located in classes called Strategies. Implementing a new
+algorithm is as easy as writting a new Strategy and modifying the app to use it.
 
-The default Engine implementation is a simple algorithm that always produces a 
+The default Strategy implementation is a simple algorithm that always produces a 
 single palindrome for a given palindromic string.
 
-Engines are located in lib/engines.
+Strategies are located in lib/strategies.
 
 Authors
 -------

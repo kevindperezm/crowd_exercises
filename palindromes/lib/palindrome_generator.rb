@@ -2,8 +2,8 @@
 
 # Creates palindromes from string's chars of input file
 class PalindromeGenerator
-  def initialize(engine, validators)
-    @engine = engine
+  def initialize(strategy, validators)
+    @strategy = strategy
     @validators = validators
   end
 
@@ -18,7 +18,7 @@ class PalindromeGenerator
   def generate_palindromes(string)
     fail PalindromeException, 'string can\'t be used to form palindromes' \
     unless validate? string
-    @engine.generate string
+    @strategy.generate string
   end
 end
 

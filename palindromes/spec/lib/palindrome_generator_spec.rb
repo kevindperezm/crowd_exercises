@@ -6,7 +6,7 @@ describe PalindromeGenerator do
   let(:validators) do
     [LengthValidator.new, RepeatedCharsValidator.new, EvenRepeatValidator.new]
   end
-  let(:gen) { PalindromeGenerator.new PalindromeEngine.new, validators }
+  let(:gen) { PalindromeGenerator.new BasicPalindromeStrategy.new, validators }
   let(:gaga_palindromes) { %w(gaag agga) }
   let(:gagat_palindromes) { %w(gatag agtga) }
 
