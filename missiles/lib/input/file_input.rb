@@ -12,10 +12,10 @@ class FileInput
 
   def fill_missiles
     missiles = []
-    @file = open(@path, 'r')
-    missile_quantity = @file.readline.to_i
-    missile_quantity.times { missiles << @file.readline.to_i }
-    @file.close
+    file = open(@path, 'r')
+    missile_quantity = file.readline.to_i
+    missile_quantity.times { missiles << file.readline.to_i }
+    file.close
     missiles
   end
 end
