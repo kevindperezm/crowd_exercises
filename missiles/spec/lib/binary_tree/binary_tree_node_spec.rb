@@ -23,6 +23,10 @@ describe BinaryTreeNode do
     it 'leftmost_children' do
       expect(tree_node).to respond_to :leftmost_children
     end
+
+    it 'rightmost_children' do
+      expect(tree_node).to respond_to :rightmost_children
+    end
   end
 
   context '#add_child' do
