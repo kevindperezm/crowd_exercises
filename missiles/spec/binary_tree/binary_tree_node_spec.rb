@@ -53,7 +53,7 @@ describe BinaryTreeNode do
   end
 
   context '#leftmost_children' do
-    let(:populated_tree) do 
+    let(:populated_tree) do
       populated_tree = BinaryTreeNode.new(0)
       populated_tree.add_child(-1)
       populated_tree.add_child(-2)
@@ -70,7 +70,7 @@ describe BinaryTreeNode do
        populated_tree.left_child.left_child.left_child]
     end
 
-    let(:rightmost_nodes) do 
+    let(:rightmost_nodes) do
       [populated_tree.right_child,
        populated_tree.right_child.right_child,
        populated_tree.right_child.right_child.right_child]
