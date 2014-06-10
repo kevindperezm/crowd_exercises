@@ -27,6 +27,10 @@ describe BinaryTreeNode do
     expect(tree_node).to respond_to :rightmost_children
   end
 
+  it 'responds to missile_destruction_routes' do
+    expect(tree_node).to respond_to :missile_destruction_routes
+  end
+
   context '#add_child' do
     it 'appends a greater value as its right child' do
       tree_node.add_child(1)
