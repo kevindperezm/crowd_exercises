@@ -6,3 +6,4 @@ RSpec.configure do |config|
 end
 
 require './lib/binary_tree/binary_tree_node'
+require './lib/input/file_input'
