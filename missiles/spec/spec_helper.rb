@@ -4,3 +4,5 @@ RSpec.configure do |config|
   config.filter_run :focus
   config.order = 'random'
 end
+
+require './lib/binary_tree/binary_tree_node'
