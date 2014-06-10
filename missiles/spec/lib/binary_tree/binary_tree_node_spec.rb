@@ -3,30 +3,28 @@ require 'spec_helper'
 describe BinaryTreeNode do
   let(:tree_node) { BinaryTreeNode.new(0) }
 
-  context 'responds to' do
-    it 'add_child' do
-      expect(tree_node).to respond_to :add_child
-    end
+  it 'responds to add_child' do
+    expect(tree_node).to respond_to :add_child
+  end
 
-    it 'left_child' do
-      expect(tree_node).to respond_to :left_child
-    end
+  it 'responds to left_child' do
+    expect(tree_node).to respond_to :left_child
+  end
 
-    it 'right_child' do
-      expect(tree_node).to respond_to :right_child
-    end
+  it 'responds to right_child' do
+    expect(tree_node).to respond_to :right_child
+  end
 
-    it 'value' do
-      expect(tree_node).to respond_to :value
-    end
+  it 'responds to value' do
+    expect(tree_node).to respond_to :value
+  end
 
-    it 'leftmost_children' do
-      expect(tree_node).to respond_to :leftmost_children
-    end
+  it 'responds to leftmost_children' do
+    expect(tree_node).to respond_to :leftmost_children
+  end
 
-    it 'rightmost_children' do
-      expect(tree_node).to respond_to :rightmost_children
-    end
+  it 'responds to rightmost_children' do
+    expect(tree_node).to respond_to :rightmost_children
   end
 
   context '#add_child' do
