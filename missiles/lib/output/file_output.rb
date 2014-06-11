@@ -1,3 +1,5 @@
+
+# Outputs missile destruction route data to a file
 class FileOutput
   def initialize(path)
     @path = path

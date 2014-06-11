@@ -39,7 +39,7 @@ describe BinaryTreeNode do
     end
     it 'appends a lower or equal value as its left child' do
       tree_node.add_child(-1)
-      expect(tree_node.left_child.value).to eql -1
+      expect(tree_node.left_child.value).to eql(-1)
     end
 
     context 'when it already has a right child' do
@@ -54,7 +54,7 @@ describe BinaryTreeNode do
       it 'sends a new value to its left child to be appended' do
         tree_node.add_child(-1)
         tree_node.add_child(-2)
-        expect(tree_node.left_child.left_child.value).to eql -2
+        expect(tree_node.left_child.left_child.value).to eql(-2)
       end
     end
   end

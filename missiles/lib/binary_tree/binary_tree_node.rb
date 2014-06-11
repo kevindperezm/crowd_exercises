@@ -1,3 +1,5 @@
+
+# Custom implementation of a binary tree.
 class BinaryTreeNode
   attr_accessor :value, :left_child, :right_child
   attr_reader :position, :children_count

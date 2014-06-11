@@ -1,6 +1,6 @@
 describe PruneStrategy do
-  let(:missile_data) { [15000, 15000, 20000, 20000, 19000] }
-  let(:destruction_routes) { [ [1, 2], [3, 4, 5] ] }
+  let(:missile_data) { [15_000, 15_000, 20_000, 20_000, 19_000] }
+  let(:destruction_routes) { [[1, 2], [3, 4, 5]] }
   let(:optimal_destruction_route) { [3, 4, 5] }
   let(:prune_strategy) { PruneStrategy.new(missile_data) }
 

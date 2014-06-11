@@ -1,5 +1,7 @@
 require_relative '../binary_tree/binary_tree_node'
 
+# Strategy to locate optimal missile destruction route on a binary tree
+# using prunes.
 class PruneStrategy
   def initialize(missile_altitudes)
     @missile_altitudes = missile_altitudes
@@ -15,7 +17,7 @@ class PruneStrategy
     routes = []
     @missile_tree.preorder do |tree_node|
       next if routes.any? { |r| r.include?(tree_node.position) }
-      routes << tree_node.leftmost_branch.collect { |node| node.position }
+      routes << tree_node.leftmost_branch.map { |node| node.position }
     end
     routes
   end

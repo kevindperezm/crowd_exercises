@@ -1,6 +1,8 @@
+
+# Load missile data from a file
 class FileInput
   def initialize(path)
-    raise FileNotFoundError unless File.exists?(path)
+    fail FileNotFoundError unless File.exist?(path)
     @path = path
   end
 

@@ -11,7 +11,7 @@ describe FileOutput do
 
     it 'creates a new file' do
       file_output.write(test_case_data)
-      expect(File.exists?('spec/test.out')).to be_true
+      expect(File.exist?('spec/test.out')).to be_true
     end
 
     it 'writes valid data into a new file' do
@@ -19,4 +19,4 @@ describe FileOutput do
       expect(File.read('spec/test.out')).to eql test_case_file_content
     end
   end
-end 
+end
