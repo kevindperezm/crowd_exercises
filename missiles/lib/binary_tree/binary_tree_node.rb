@@ -12,13 +12,9 @@ class BinaryTreeNode
     @children_count ||= @position
     @children_count += 1
     if child_value > @value
-      @right_child.nil? \
-      ? @right_child = BinaryTreeNode.new(@children_count, child_value) \
-      : @right_child.add_child(child_value)
+      add_right_child(child_value)
     else
-      @left_child.nil? \
-      ? @left_child = BinaryTreeNode.new(@children_count, child_value) \
-      : @left_child.add_child(child_value)
+      add_left_child(child_value)
     end
   end
 
@@ -38,5 +34,27 @@ class BinaryTreeNode
     block.call(self)
     @left_child && @left_child.preorder(&block)
     @right_child && @right_child.preorder(&block)
+  end
+
+  private
+
+  def new_node(value)
+    BinaryTreeNode.new(@children_count, value)
+  end
+
+  def add_right_child(child_value)
+    if @right_child.nil?
+      @right_child = new_node(child_value)
+    else
+      @right_child.add_child(child_value)
+    end
+  end
+
+  def add_left_child(child_value)
+    if @left_child.nil?
+      @left_child = new_node(child_value)
+    else
+      @left_child.add_child(child_value)
+    end
   end
 end
