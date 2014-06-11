@@ -38,4 +38,10 @@ class BinaryTreeNode
     end
     children
   end
+
+  def preorder(&block)
+    block.call(self)
+    @left_child && @left_child.preorder_traversal(&block)
+    @right_child && @right_child.preorder_traversal(&block)
+  end
 end
