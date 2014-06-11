@@ -1,5 +1,6 @@
 class BinaryTreeNode
-  attr_accessor :position, :value, :left_child, :right_child, :children_count
+  attr_accessor :value, :left_child, :right_child
+  attr_reader :position, :children_count
 
   def initialize(position, value)
     @value = value
