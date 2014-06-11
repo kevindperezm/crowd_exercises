@@ -9,7 +9,7 @@ class PruneStrategy
 
   def optimal_missile_destruction_route
     routes = missile_destruction_routes
-    routes.max
+    routes.max_by { |route| route.size }
   end
 
   def missile_destruction_routes
