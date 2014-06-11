@@ -78,7 +78,7 @@ describe BinaryTreeNode do
       expect(populated_tree.rightmost_branch).to eql rightmost_branch
     end
 
-    it 'returns leftmo branch' do
+    it 'returns leftmost branch' do
       expect(populated_tree.leftmost_branch).to eql leftmost_branch
     end
   end
