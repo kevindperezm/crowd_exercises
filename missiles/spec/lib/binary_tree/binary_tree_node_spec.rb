@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe BinaryTreeNode do
-  let(:tree_node) { BinaryTreeNode.new(0) }
+  let(:tree_node) { BinaryTreeNode.new(0, 0) }
 
   it 'responds to add_child' do
     expect(tree_node).to respond_to :add_child
@@ -56,7 +56,7 @@ describe BinaryTreeNode do
 
   context '#leftmost_children and #rightmost_children' do
     let(:populated_tree) do
-      populated_tree = BinaryTreeNode.new(0)
+      populated_tree = BinaryTreeNode.new(0, 0)
       populated_tree.add_child(-1)
       populated_tree.add_child(-2)
       populated_tree.add_child(-3)

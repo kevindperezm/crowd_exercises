@@ -1,19 +1,22 @@
 class BinaryTreeNode
-  attr_accessor :value, :left_child, :right_child
+  attr_accessor :position, :value, :left_child, :right_child, :children_count
 
-  def initialize(value)
+  def initialize(position, value)
     @value = value
+    @position = position
     @left_child = @right_child = nil
   end
 
   def add_child(child_value)
+    @children_count ||= @position
+    @children_count += 1
     if child_value > @value
       @right_child.nil? \
-      ? @right_child = BinaryTreeNode.new(child_value) \
+      ? @right_child = BinaryTreeNode.new(@children_count, child_value) \
       : @right_child.add_child(child_value)
     else
       @left_child.nil? \
-      ? @left_child = BinaryTreeNode.new(child_value) \
+      ? @left_child = BinaryTreeNode.new(@children_count, child_value) \
       : @left_child.add_child(child_value)
     end
   end
