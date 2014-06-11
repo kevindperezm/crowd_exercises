@@ -23,20 +23,14 @@ class BinaryTreeNode
 
   def leftmost_branch
     children = [self]
-    unless @left_child.nil?
-      children << @left_child
-      children += @left_child.leftmost_branch
-    end
-    children.uniq
+    children += @left_child.leftmost_branch unless @left_child.nil?
+    children
   end
 
   def rightmost_branch
     children = [self]
-    unless @right_child.nil?
-      children << @right_child
-      children += @right_child.rightmost_branch
-    end
-    children.uniq
+    children += @right_child.rightmost_branch unless @right_child.nil?
+    children
   end
 
   def preorder(&block)
