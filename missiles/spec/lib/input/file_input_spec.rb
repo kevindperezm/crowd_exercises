@@ -15,7 +15,7 @@ describe FileInput do
   context '#missiles' do
     let(:testing_missiles) { [4500, 3600, 7200, 6789, 4321] }
 
-    it 'returns an array with each missile high value' do
+    it 'returns an array with each missile altitude value' do
       expect(file_input.missiles).to eql testing_missiles
     end
   end
