@@ -35,7 +35,4 @@ class BinaryTreeNode
     end
     children
   end
-
-  def missile_destruction_routes
-  end
 end
