@@ -14,10 +14,10 @@ class FileInput
 
   def fill_missiles
     missiles = []
-    file = open(@path, 'r')
-    missile_quantity = file.readline.to_i
-    missile_quantity.times { missiles << file.readline.to_i }
-    file.close
+    lines = IO.readlines(@path)
+    missile_quantity = lines.shift.to_i
+    missile_quantity.times { |i| missiles << lines[i].to_i }
+    fail ImpossibleToParse if lines.size > 0 && missiles.size <= 0
     missiles
   end
 end
@@ -25,5 +25,5 @@ end
 class FileNotFoundError < IOError
 end
 
-class InvalidMissileFile < StandardError
+class ImpossibleToParse < StandardError
 end

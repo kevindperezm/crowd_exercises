@@ -1,0 +1,2 @@
+This is a fail test files that can't be parsed by a FileInput instance.
+The FileInput class should raise an error when trying to parse this.
