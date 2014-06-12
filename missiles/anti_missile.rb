@@ -7,6 +7,7 @@ require './lib/output/file_output'
 
 INPUT_FILE_EXTENSION = '.in'
 OUTPUT_FILE_EXTENSION = '.out'
+@failures = []
 
 def main
   Dir["#{input_directory}/*#{INPUT_FILE_EXTENSION}"].each do |entry|
@@ -14,7 +15,7 @@ def main
       parse_file(entry)
       show_success
     rescue ImpossibleToParse
-      show_failure
+      @failures.push(entry) && show_failure
     end
   end
   say_bye
@@ -61,6 +62,10 @@ def show_failure
 end
 
 def say_bye
+  unless @failures.empty?
+    puts "\n\nThere were failures\nFailures: "
+    @failures.each { |entry| puts "\t* #{entry}" }
+  end
   puts "\nDone"
 end
 
