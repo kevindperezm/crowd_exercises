@@ -11,10 +11,15 @@ OUTPUT_FILE_EXTENSION = '.out'
 def input_directory
   input_dir = nil
   begin
+    fail ArgumentError if ARGV[0].nil?
     input_dir = ARGV[0].chomp('\\')
     fail IOError unless File.exist?(input_dir)
   rescue IOError
     puts "Unreachable dir '#{input_dir}'\nExit"
+    exit
+  rescue ArgumentError
+    puts "No input directory specified"
+    puts "Usage: #{__FILE__} [input dir]"
     exit
   end
   input_dir
