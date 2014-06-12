@@ -10,14 +10,22 @@ OUTPUT_FILE_EXTENSION = '.out'
 
 def main
   Dir["#{input_directory}/*#{INPUT_FILE_EXTENSION}"].each do |entry|
-    data = FileInput.new(entry).missiles
-    optimal_route = PruneStrategy.new(data).optimal_missile_destruction_route
-    basename = File.basename(entry, INPUT_FILE_EXTENSION)
-    output_path = "#{input_directory}/#{basename}#{OUTPUT_FILE_EXTENSION}"
-    FileOutput.new("#{output_path}").write(optimal_route)
-    putc '.'
+    begin
+      parse_file(entry)
+      show_success
+    rescue ImpossibleToParse
+      show_failure
+    end
   end
-  puts "\nOK"
+  say_bye
+end
+
+def parse_file(entry)
+  data = FileInput.new(entry).missiles
+  optimal_route = PruneStrategy.new(data).optimal_missile_destruction_route
+  basename = File.basename(entry, INPUT_FILE_EXTENSION)
+  output_path = "#{input_directory}/#{basename}#{OUTPUT_FILE_EXTENSION}"
+  FileOutput.new("#{output_path}").write(optimal_route)
 end
 
 def input_directory
@@ -42,6 +50,18 @@ def no_input_dir_specified
   puts 'No input directory specified'
   puts "Usage: #{__FILE__} [input dir]"
   exit
+end
+
+def show_success
+  putc '.'
+end
+
+def show_failure
+  putc 'x'
+end
+
+def say_bye
+  puts "\nDone"
 end
 
 main
