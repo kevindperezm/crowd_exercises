@@ -26,8 +26,9 @@ class PruneStrategy
 
   def build_missile_tree
     @missile_tree = BinaryTreeNode.new(1, @missile_altitudes.first)
+    last_inserted_node = @missile_tree
     @missile_altitudes.drop(1).each do |missile_altitude|
-      @missile_tree.add_child(missile_altitude)
+      last_inserted_node = last_inserted_node.add_child(missile_altitude)
     end
   end
 end
