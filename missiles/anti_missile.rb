@@ -26,4 +26,6 @@ Dir["#{input_directory}/*#{INPUT_FILE_EXTENSION}"].each do |entry|
   basename = File.basename(entry, INPUT_FILE_EXTENSION)
   output_path = "#{input_directory}/#{basename}#{OUTPUT_FILE_EXTENSION}"
   FileOutput.new("#{output_path}").write(optimal_route)
+  putc '.'
 end
+puts "\nOK"
