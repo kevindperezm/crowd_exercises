@@ -28,8 +28,8 @@ describe PruneStrategy do
   context 'when evaluating test cases' do
     let(:test_cases_data) do
       [[5_000, 6_000, 5_500, 5_000, 4_500],
-       [4500, 3600, 7200, 6789, 4321],
-       [15000, 15000, 20000, 20000]]
+       [4_500, 3_600, 7_200, 6_789, 4_321],
+       [15_000, 15_000, 20_000, 20_000]]
     end
     let(:test_cases_solutions) do
       [[2, 3, 4, 5],
