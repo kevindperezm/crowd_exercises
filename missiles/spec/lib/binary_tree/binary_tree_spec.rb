@@ -12,13 +12,6 @@ describe BinaryTree do
     populated_tree.add_child(3)
     populated_tree
   end
-  let(:expected_positions) { [1, 2, 3, 4] }
-  let(:generated_positions) do
-    tree = BinaryTree.new(0)
-    positions = [tree.root.position]
-    3.times { |n| positions << tree.add_child(n).position }
-    positions
-  end
 
   it 'responds to #add_child' do
     expect(tree).to respond_to :add_child
@@ -55,10 +48,6 @@ describe BinaryTree do
         tree.add_child(2)
         expect(tree.right_child.right_child.value).to eql 2
       end
-    end
-
-    it 'puts node\'s position value correctly' do
-      expect(generated_positions).to eql expected_positions
     end
 
     context 'when it already has a left child' do
