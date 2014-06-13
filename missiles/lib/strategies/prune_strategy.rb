@@ -1,4 +1,4 @@
-require_relative '../binary_tree/binary_tree_node'
+require_relative '../binary_tree/binary_tree'
 
 # Strategy to locate optimal missile destruction route on a binary tree
 # using prunes.
@@ -25,10 +25,12 @@ class PruneStrategy
   private
 
   def build_missile_tree
-    @missile_tree = BinaryTreeNode.new(1, @missile_altitudes.first)
-    last_inserted_node = @missile_tree
+    @missile_tree = BinaryTree.new(@missile_altitudes.first)
+    last_node = @missile_tree.root
     @missile_altitudes.drop(1).each do |missile_altitude|
-      last_inserted_node = last_inserted_node.add_child(missile_altitude)
+      # position = @missile_tree.node_count + 1
+      # last_node = last_node.add_child(position, missile_altitude)
+      @missile_tree.add_child(missile_altitude)
     end
   end
 end

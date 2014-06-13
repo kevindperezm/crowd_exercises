@@ -1,8 +1,8 @@
 
-# Custom implementation of a binary tree.
+# Custom implementation of a binary tree node.
 class BinaryTreeNode
   attr_accessor :value, :left_child, :right_child
-  attr_reader :position, :children_count
+  attr_reader :position
 
   def initialize(position, value)
     @value = value
@@ -10,13 +10,11 @@ class BinaryTreeNode
     @left_child = @right_child = nil
   end
 
-  def add_child(child_value)
-    @children_count ||= @position
-    @children_count += 1
+  def add_child(position, child_value)
     if child_value > @value
-      add_right_child(child_value)
+      add_right_child(position, child_value)
     else
-      add_left_child(child_value)
+      add_left_child(position, child_value)
     end
   end
 
@@ -40,23 +38,23 @@ class BinaryTreeNode
 
   private
 
-  def new_node(value)
-    BinaryTreeNode.new(@children_count, value)
+  def new_node(position, value)
+    BinaryTreeNode.new(position, value)
   end
 
-  def add_right_child(child_value)
+  def add_right_child(position, child_value)
     if @right_child.nil?
-      @right_child = new_node(child_value)
+      @right_child = new_node(position, child_value)
     else
-      @right_child.add_child(child_value)
+      @right_child.add_child(position, child_value)
     end
   end
 
-  def add_left_child(child_value)
+  def add_left_child(position, child_value)
     if @left_child.nil?
-      @left_child = new_node(child_value)
+      @left_child = new_node(position, child_value)
     else
-      @left_child.add_child(child_value)
+      @left_child.add_child(position, child_value)
     end
   end
 end
