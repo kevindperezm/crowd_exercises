@@ -1,7 +1,7 @@
 #! /usr/bin/env ruby
 
 require './lib/binary_tree/binary_tree_node'
-require './lib/strategies/prune_strategy'
+require './lib/strategies/multiple_tree_strategy'
 require './lib/input/file_input'
 require './lib/output/file_output'
 
@@ -23,7 +23,8 @@ end
 
 def parse_file(entry)
   data = FileInput.new(entry).missiles
-  optimal_route = PruneStrategy.new(data).optimal_missile_destruction_route
+  optimal_route = MultipleTreeStrategy.new(data)
+                  .optimal_missile_destruction_route
   basename = File.basename(entry, INPUT_FILE_EXTENSION)
   output_path = "#{input_directory}/#{basename}#{OUTPUT_FILE_EXTENSION}"
   FileOutput.new("#{output_path}").write(optimal_route)

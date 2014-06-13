@@ -8,4 +8,4 @@ end
 require './lib/binary_tree/binary_tree'
 require './lib/input/file_input'
 require './lib/output/file_output'
-require './lib/strategies/prune_strategy'
+require './lib/strategies/multiple_tree_strategy'
