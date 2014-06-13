@@ -6,16 +6,16 @@ describe FileOutput do
   end
 
   context '#write' do
-    let(:test_case_data) { [3, 4, 5] }
-    let(:test_case_file_content) { "3\n3\n4\n5\n" }
+    let(:test_case_positions) { [1, 2, 3] }
+    let(:test_case_file_content) { "3\n1\n2\n3\n" }
 
     it 'creates a new file' do
-      file_output.write(test_case_data)
+      file_output.write(test_case_positions)
       expect(File.exist?('spec/test.out')).to be_true
     end
 
     it 'writes valid data into a new file' do
-      file_output.write(test_case_data)
+      file_output.write(test_case_positions)
       expect(File.read('spec/test.out')).to eql test_case_file_content
     end
   end

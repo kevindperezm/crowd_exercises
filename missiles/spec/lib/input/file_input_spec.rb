@@ -15,10 +15,18 @@ describe FileInput do
   end
 
   context '#missiles' do
-    let(:testing_missiles) { [4500, 3600, 7200, 6789, 4321] }
+    let(:testing_missiles) do
+      [
+        Missile.new(1, 4500),
+        Missile.new(2, 3600),
+        Missile.new(3, 7200),
+        Missile.new(4, 6789),
+        Missile.new(5, 4321)
+      ]
+    end
 
     it 'returns an array with each missile altitude value' do
-      expect(file_input.missiles).to eql testing_missiles
+      expect(file_input.missiles).to eq testing_missiles
     end
 
     it 'raises an error when the file is impossible to parse' do
