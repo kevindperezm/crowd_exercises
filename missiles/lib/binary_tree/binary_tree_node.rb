@@ -1,8 +1,7 @@
 
 # Custom implementation of a binary tree node.
 class BinaryTreeNode
-  attr_accessor :value, :left_child, :right_child
-  attr_reader :position
+  attr_accessor :value, :left_child, :right_child, :position
 
   def initialize(position, value)
     @value = value

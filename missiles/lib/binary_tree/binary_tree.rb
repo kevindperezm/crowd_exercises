@@ -4,7 +4,7 @@ require_relative 'binary_tree_node'
 # Custom implementation of a binary tree
 class BinaryTree
   extend Forwardable
-  attr_reader :root, :node_count
+  attr_accessor :root, :node_count
 
   def initialize(value)
     @root = BinaryTreeNode.new(1, value)
