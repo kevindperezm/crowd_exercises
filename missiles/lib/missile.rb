@@ -8,7 +8,7 @@ class Missile
     @altitude = altitude
   end
 
-  def <=>(another)
-    @altitude <=> another.altitude
+  def <=>(other)
+    @altitude <=> other.altitude
   end
 end
