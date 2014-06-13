@@ -26,7 +26,7 @@ class MultipleTreeStrategy
   private
 
   def build_all_trees
-    @missile_data.each_with_index do |missile_altitude, i|
+    @missile_data.each_index do |i|
       @trees << build_tree(@missile_data.drop(i), i + 1)
     end
   end
