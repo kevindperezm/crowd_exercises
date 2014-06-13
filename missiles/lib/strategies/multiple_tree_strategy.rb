@@ -4,8 +4,8 @@ require_relative '../binary_tree/binary_tree'
 # for each missile and find the optimal route
 # among all of the possible routes.
 class MultipleTreeStrategy
-  def initialize(missile_data)
-    @missile_data = missile_data
+  def initialize(missiles)
+    @missiles = missiles
     @trees = []
     @destruction_routes = []
   end
@@ -26,8 +26,8 @@ class MultipleTreeStrategy
   private
 
   def build_all_trees
-    @missile_data.each_index do |i|
-      @trees << build_tree(@missile_data.drop(i), i + 1)
+    @missiles.each_index do |i|
+      @trees << build_tree(@missiles.drop(i))
     end
   end
 
@@ -37,9 +37,8 @@ class MultipleTreeStrategy
     end
   end
 
-  def build_tree(missile_altitudes, root_position)
+  def build_tree(missile_altitudes)
     tree = BinaryTree.new(missile_altitudes.first)
-    tree.node_count = tree.root.position = root_position
     missile_altitudes.drop(1).each do |missile_altitude|
       tree.add_child(missile_altitude)
     end
@@ -49,8 +48,8 @@ class MultipleTreeStrategy
   def find_destruction_routes(missile_tree)
     routes = []
     missile_tree.preorder do |tree_node|
-      next if routes.any? { |r| r.include?(tree_node.position) }
-      routes << tree_node.leftmost_branch.map { |node| node.position }
+      next if routes.any? { |r| r.include?(tree_node.value.position) }
+      routes << tree_node.leftmost_branch.map { |node| node.value.position }
     end
     routes
   end
