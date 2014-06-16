@@ -10,6 +10,17 @@ OUTPUT_FILE_EXTENSION = '.out'
 @failures = []
 
 def main
+  start_timer
+  parse_entries
+  show_duration
+  say_bye
+end
+
+def start_timer
+  @start = Time.now
+end
+
+def parse_entries
   Dir["#{input_directory}/*#{INPUT_FILE_EXTENSION}"].each do |entry|
     begin
       parse_file(entry)
@@ -18,7 +29,24 @@ def main
       @failures.push(entry) && show_failure
     end
   end
-  say_bye
+end
+
+def show_duration
+  duration = (Time.now - @start).to_f.round(4)
+  puts "\nFinished in #{duration} seconds"
+end
+
+def input_directory
+  input_dir = nil
+  begin
+    ARGV[0].nil? ? fail(ArgumentError) : input_dir = ARGV[0].chomp('\\/')
+    fail IOError unless File.exist?(input_dir)
+  rescue IOError
+    invalid_input_dir(input_dir)
+  rescue ArgumentError
+    no_input_dir_specified
+  end
+  input_dir
 end
 
 def parse_file(entry)
@@ -30,18 +58,6 @@ def parse_file(entry)
   FileOutput.new("#{output_path}").write(optimal_route)
 end
 
-def input_directory
-  input_dir = nil
-  begin
-    ARGV[0].nil? ? fail(ArgumentError) : input_dir = ARGV[0].chomp('\\')
-    fail IOError unless File.exist?(input_dir)
-  rescue IOError
-    invalid_input_dir(input_dir)
-  rescue ArgumentError
-    no_input_dir_specified
-  end
-  input_dir
-end
 
 def invalid_input_dir(input_dir)
   puts "Unreachable dir '#{input_dir}'\nExit"
@@ -64,7 +80,7 @@ end
 
 def say_bye
   unless @failures.empty?
-    puts "\n\nThere were failures\nFailures: "
+    puts "\nFailures: "
     @failures.each { |entry| puts "\t* #{entry}" }
   end
   puts "\nDone"
