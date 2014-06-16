@@ -3,13 +3,13 @@ require 'spec_helper'
 describe BinaryTree do
   let(:tree) { BinaryTree.new(0) }
   let(:populated_tree) do
-    populated_tree = BinaryTree.new(0)
-    populated_tree.add_child(-1)
+    populated_tree = BinaryTree.new(1)
     populated_tree.add_child(-2)
     populated_tree.add_child(-3)
-    populated_tree.add_child(1)
+    populated_tree.add_child(-4)
     populated_tree.add_child(2)
     populated_tree.add_child(3)
+    populated_tree.add_child(4)
     populated_tree
   end
 
@@ -84,12 +84,12 @@ describe BinaryTree do
   end
 
   context '#preorder' do
-    let(:preorder_ordered_values) { [0, -1, -2, -3, 1, 2, 3] }
+    let(:preorder_ordered_values) { [1, -2, -3, -4, 2, 3, 4] }
 
     it 'executes a block on each node' do
-      value = 0
-      populated_tree.preorder { |node| value += node.value }
-      expect(value).to be 0
+      value = 1
+      populated_tree.preorder { |node| value *= node.value }
+      expect(value).to be(-576)
     end
 
     it 'traverses the tree in a preorder way' do
