@@ -58,7 +58,6 @@ def parse_file(entry)
   FileOutput.new("#{output_path}").write(optimal_route)
 end
 
-
 def invalid_input_dir(input_dir)
   puts "Unreachable dir '#{input_dir}'\nExit"
   exit
