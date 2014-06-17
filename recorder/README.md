@@ -26,7 +26,7 @@ To play our recording we should execute a method playback which receive an objec
     => 'Hola Mundo'
 
     > recorder.playback x
-  => Executed actions [:reverse!, downcase!, insert!, delete!]
+    => Executed actions [:reverse!, downcase!, insert!, delete!]
 
     > x
     => "dlBBroW olleH"
