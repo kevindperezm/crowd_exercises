@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Recorder do
-  let(:recorder) { recorder = Recorder.new }
+  let(:recorder) { Recorder.new }
 
   it 'responds to #playback' do
     expect(recorder).to respond_to :playback
