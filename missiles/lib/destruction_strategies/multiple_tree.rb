@@ -12,11 +12,11 @@ module DestructionStrategies
     end
 
     def best_destruction_route
-      missile_destruction_routes if @destruction_routes.empty?
+      destruction_routes if @destruction_routes.empty?
       @destruction_routes.max_by { |route| route.length }
     end
 
-    def missile_destruction_routes
+    def destruction_routes
       if @destruction_routes.empty?
         build_all_trees
         find_destruction_routes_in_trees

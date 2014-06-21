@@ -24,18 +24,18 @@ describe DestructionStrategies::MultipleTree do
   it 'responds to #best_destruction_route' do
     expect(strategy).to respond_to :best_destruction_route
   end
-  it 'responds to #missile_destruction_routes' do
-    expect(strategy).to respond_to :missile_destruction_routes
+  it 'responds to #destruction_routes' do
+    expect(strategy).to respond_to :destruction_routes
   end
 
-  context '#missile_destruction_routes' do
+  context '#destruction_routes' do
     it 'returns all the possible missile destruction routes' do
       expect(strategy.missile_destruction_routes)
       .to eql all_missile_destruction_routes
     end
   end
 
-  context '#optimal_missile_destruction_route' do
+  context '#best_destruction_route' do
     it 'returns the optimal missile destruction route' do
       expect(strategy.best_destruction_route)
       .to eql optimal_destruction_route
