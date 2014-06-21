@@ -1,5 +1,5 @@
 require 'forwardable'
-require_relative 'binary_tree_node'
+require_relative 'node'
 
 module BinaryTree
   # Custom implementation of a binary tree
@@ -8,7 +8,7 @@ module BinaryTree
     attr_reader :root
 
     def initialize(value)
-      @root = BinaryTreeNode.new(value)
+      @root = Node.new(value)
     end
 
     def add_child(child_value)
