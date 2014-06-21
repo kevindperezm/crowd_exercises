@@ -11,7 +11,7 @@ module DestructionStrategies
       @destruction_routes = []
     end
 
-    def optimal_missile_destruction_route
+    def best_destruction_route
       missile_destruction_routes if @destruction_routes.empty?
       @destruction_routes.max_by { |route| route.length }
     end

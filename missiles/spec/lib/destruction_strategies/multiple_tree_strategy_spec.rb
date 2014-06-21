@@ -21,8 +21,8 @@ describe DestructionStrategies::MultipleTree do
   let(:optimal_destruction_route) { [2, 3, 4, 5] }
   let(:strategy) { DestructionStrategies::MultipleTree.new(missiles) }
 
-  it 'responds to #optimal_missile_destruction_route' do
-    expect(strategy).to respond_to :optimal_missile_destruction_route
+  it 'responds to #best_destruction_route' do
+    expect(strategy).to respond_to :best_destruction_route
   end
   it 'responds to #missile_destruction_routes' do
     expect(strategy).to respond_to :missile_destruction_routes
@@ -37,7 +37,7 @@ describe DestructionStrategies::MultipleTree do
 
   context '#optimal_missile_destruction_route' do
     it 'returns the optimal missile destruction route' do
-      expect(strategy.optimal_missile_destruction_route)
+      expect(strategy.best_destruction_route)
       .to eql optimal_destruction_route
     end
   end
