@@ -1,4 +1,4 @@
-describe MultipleTreeStrategy do
+describe DestructionStrategies::MultipleTree do
   let(:missiles) do
     [
       Missile.new(1, 5_000),
@@ -19,7 +19,7 @@ describe MultipleTreeStrategy do
     ]
   end
   let(:optimal_destruction_route) { [2, 3, 4, 5] }
-  let(:strategy) { MultipleTreeStrategy.new(missiles) }
+  let(:strategy) { DestructionStrategies::MultipleTree.new(missiles) }
 
   it 'responds to #optimal_missile_destruction_route' do
     expect(strategy).to respond_to :optimal_missile_destruction_route
