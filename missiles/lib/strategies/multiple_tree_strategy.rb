@@ -1,4 +1,4 @@
-require_relative '../binary_tree/binary_tree'
+require_relative '../binary_tree/tree'
 
 # A algorithm implmentation that builds a tree
 # for each missile and find the optimal route
@@ -38,7 +38,7 @@ class MultipleTreeStrategy
   end
 
   def build_tree(missile_altitudes)
-    tree = BinaryTree.new(missile_altitudes.first)
+    tree = BinaryTree::Tree.new(missile_altitudes.first)
     missile_altitudes.drop(1).each do |missile_altitude|
       tree.add_child(missile_altitude)
     end

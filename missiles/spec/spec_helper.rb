@@ -8,5 +8,5 @@ end
 require './lib/missile'
 require './lib/input/file_input'
 require './lib/output/file_output'
-require './lib/binary_tree/binary_tree'
+require './lib/binary_tree/tree'
 require './lib/strategies/multiple_tree_strategy'

@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe BinaryTree do
-  let(:tree) { BinaryTree.new(0) }
+describe BinaryTree::Tree do
+  let(:tree) { BinaryTree::Tree.new(0) }
   let(:populated_tree) do
-    populated_tree = BinaryTree.new(1)
+    populated_tree = BinaryTree::Tree.new(1)
     populated_tree.add_child(-2)
     populated_tree.add_child(-3)
     populated_tree.add_child(-4)
