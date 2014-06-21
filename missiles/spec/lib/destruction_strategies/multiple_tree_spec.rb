@@ -30,7 +30,7 @@ describe DestructionStrategies::MultipleTree do
 
   context '#destruction_routes' do
     it 'returns all the possible missile destruction routes' do
-      expect(strategy.missile_destruction_routes)
+      expect(strategy.destruction_routes)
       .to eql all_missile_destruction_routes
     end
   end
