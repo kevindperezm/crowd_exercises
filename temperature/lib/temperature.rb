@@ -7,4 +7,8 @@ class Temperature
   def self.in_celsius(degrees)
     Temperature.new(degrees)
   end
+
+  def to_far
+    @degrees * 1.8 + 32
+  end
 end
