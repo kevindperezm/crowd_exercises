@@ -5,7 +5,11 @@ class Temperature
   end
 
   def self.in_celsius(degrees)
-    Temperature.new(degrees)
+    new(degrees)
+  end
+
+  def self.in_fahrenheit(degrees)
+    new(degrees)
   end
 
   def to_far
