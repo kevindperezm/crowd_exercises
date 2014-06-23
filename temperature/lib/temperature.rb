@@ -14,18 +14,22 @@ class Temperature
   end
 
   def to_cel
-    if @unit == :fahrenheit
-      (@degrees - 32) / 1.8
-    else
-      @degrees
-    end
+    convert_to :celsius
   end
 
   def to_far
-    if @unit == :celsius
+    convert_to :fahrenheit
+  end
+
+  private
+
+  def convert_to(unit)
+    return @degrees if unit == @unit
+
+    if unit == :celsius
+      (@degrees - 32) / 1.8
+    elsif unit == :fahrenheit
       @degrees * 1.8 + 32
-    else
-      @degrees
     end
   end
 end
