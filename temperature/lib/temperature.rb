@@ -12,6 +12,10 @@ class Temperature
     new(degrees)
   end
 
+  def to_cel
+    (@degrees - 32) / 1.8
+  end
+
   def to_far
     @degrees * 1.8 + 32
   end
