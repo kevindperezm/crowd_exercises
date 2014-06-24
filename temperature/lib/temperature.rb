@@ -27,17 +27,17 @@ class Temperature
     return @degrees if unit == @unit
 
     if unit == :celsius
-      convert_celsius_to_fahrenheit
+      convert_celsius_to_fahrenheit(@degrees)
     elsif unit == :fahrenheit
-      convert_fahrenheit_to_celsius
+      convert_fahrenheit_to_celsius(@degrees)
     end
   end
 
-  def convert_celsius_to_fahrenheit
-    (@degrees - 32) / 1.8
+  def convert_celsius_to_fahrenheit(celsius)
+    (celsius - 32) / 1.8
   end
 
-  def convert_fahrenheit_to_celsius
-    @degrees * 1.8 + 32
+  def convert_fahrenheit_to_celsius(fahrenheit)
+    fahrenheit * 1.8 + 32
   end
 end
