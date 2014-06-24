@@ -1,5 +1,5 @@
-describe FileOutput do
-  let(:file_output) { FileOutput.new('spec/test.out') }
+describe Output::File do
+  let(:file_output) { Output::File.new('spec/test.out') }
 
   it 'responds to #write' do
     expect(file_output).to respond_to :write

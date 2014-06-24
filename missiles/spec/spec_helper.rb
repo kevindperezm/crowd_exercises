@@ -7,6 +7,6 @@ end
 
 require './lib/missile'
 require './lib/input/file'
-require './lib/output/file_output'
+require './lib/output/file'
 require './lib/binary_tree/tree'
 require './lib/destruction_strategies/multiple_tree'
