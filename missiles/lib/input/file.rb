@@ -1,4 +1,6 @@
 require_relative '../missile'
+require_relative 'file_not_found'
+require_relative 'impossible_to_parse'
 
 module Input
   StandardFile = File
@@ -26,11 +28,5 @@ module Input
       end
       fail ImpossibleToParse if lines.size > 0 && @missiles.size <= 0
     end
-  end
-
-  class FileNotFoundError < IOError
-  end
-
-  class ImpossibleToParse < StandardError
   end
 end
