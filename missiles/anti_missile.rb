@@ -6,9 +6,6 @@ require './lib/output/file'
 
 # Main program
 class AntiMissile
-  INPUT_FILE_EXTENSION = '.in'
-  OUTPUT_FILE_EXTENSION = '.out'
-
   def initialize
     @failures = []
   end
