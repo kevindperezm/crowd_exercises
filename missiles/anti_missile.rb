@@ -1,8 +1,8 @@
 #! /usr/bin/env ruby
 
 require './lib/destruction_strategies/multiple_tree'
-require './lib/input/file_input'
-require './lib/output/file_output'
+require './lib/input/file'
+require './lib/output/file'
 
 # Main program
 class AntiMissile
@@ -31,7 +31,7 @@ class AntiMissile
       begin
         parse_file(entry)
         show_success
-      rescue ImpossibleToParse
+      rescue Input::ImpossibleToParse
         @failures.push(entry) && show_failure
       end
     end
@@ -56,12 +56,12 @@ class AntiMissile
   end
 
   def parse_file(entry)
-    data = FileInput.new(entry).missiles
+    data = Input::File.new(entry).missiles
     best_route = DestructionStrategies::MultipleTree.new(data)
                  .best_destruction_route
     basename = File.basename(entry, INPUT_FILE_EXTENSION)
     output_path = "#{input_directory}/#{basename}#{OUTPUT_FILE_EXTENSION}"
-    FileOutput.new("#{output_path}").write(best_route)
+    Output::File.new("#{output_path}").write(best_route)
   end
 
   def invalid_input_dir(input_dir)
