@@ -6,7 +6,7 @@ RSpec.configure do |config|
 end
 
 require './lib/missile'
-require './lib/input/file_input'
+require './lib/input/file'
 require './lib/output/file_output'
 require './lib/binary_tree/tree'
 require './lib/destruction_strategies/multiple_tree'
