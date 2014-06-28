@@ -11,7 +11,7 @@ describe Output::File do
 
     it 'creates a new file' do
       file_output.write(test_case_positions)
-      expect(File.exist?('spec/test.out')).to be_true
+      expect(File.exist?('spec/test.out')).to eql true
     end
 
     it 'writes valid data into a new file' do
