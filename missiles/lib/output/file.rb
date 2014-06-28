@@ -8,7 +8,7 @@ module Output
     def write(missiles_route)
       open(@path, 'w') do |f|
         f.write("#{missiles_route.size}\n")
-        missiles_route.each do|missile_position|
+        missiles_route.each do |missile_position|
           f.write("#{missile_position}\n")
         end
       end
