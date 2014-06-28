@@ -1,12 +1,11 @@
 RSpec.configure do |config|
-  config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true
   config.filter_run :focus
   config.order = 'random'
 end
 
 require './lib/missile'
-require './lib/input/file_input'
-require './lib/output/file_output'
-require './lib/binary_tree/binary_tree'
-require './lib/strategies/multiple_tree_strategy'
+require './lib/input/file'
+require './lib/output/file'
+require './lib/binary_tree/tree'
+require './lib/destruction_strategies/multiple_tree'

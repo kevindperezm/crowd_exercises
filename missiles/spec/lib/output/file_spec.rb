@@ -1,5 +1,5 @@
-describe FileOutput do
-  let(:file_output) { FileOutput.new('spec/test.out') }
+describe Output::File do
+  let(:file_output) { Output::File.new('spec/test.out') }
 
   it 'responds to #write' do
     expect(file_output).to respond_to :write
@@ -11,7 +11,7 @@ describe FileOutput do
 
     it 'creates a new file' do
       file_output.write(test_case_positions)
-      expect(File.exist?('spec/test.out')).to be_true
+      expect(File.exist?('spec/test.out')).to eql true
     end
 
     it 'writes valid data into a new file' do
