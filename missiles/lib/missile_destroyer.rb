@@ -15,6 +15,6 @@ class MissileDestroyer
 
   def missiles=(missiles)
     @missiles = missiles
-    @strategy = @strategy.class.new(missiles)
+    @strategy && @strategy = @strategy.class.new(missiles)
   end
 end
