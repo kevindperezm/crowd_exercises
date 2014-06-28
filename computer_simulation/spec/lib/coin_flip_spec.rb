@@ -78,7 +78,7 @@ describe CoinFlip do
 
     describe '#player_broken?' do
       it 'returns true if the amount passed in is less than 1' do
-        expect(coinflip.send :player_broken?, -56).to be_true
+        expect(coinflip.send :player_broken?, -56).to eql true
       end
     end
 

@@ -13,11 +13,11 @@ describe PalindromeGenerator do
   context '#generate_palindromes' do
     it 'generates a palindrome from useful even-size string' do
       generated_palindromes = gen.generate_palindromes('gaga')
-      expect(gaga_palindromes.include? generated_palindromes[0]).to be_true
+      expect(gaga_palindromes.include? generated_palindromes[0]).to eql true
     end
     it 'generates a palindrome from useful odd-size string' do
       generated_palindromes = gen.generate_palindromes('gagat')
-      expect(gagat_palindromes.include? generated_palindromes[0]).to be_true
+      expect(gagat_palindromes.include? generated_palindromes[0]).to eql true
     end
     it 'raises PalindromeException if even-size string can\'t be used to build
     palindromes' do
@@ -33,16 +33,16 @@ describe PalindromeGenerator do
 
   context '#palindrome?' do
     it 'returns true when string is a palindrome, like "ana"' do
-      expect(gen.palindrome? 'ana').to be_true
+      expect(gen.palindrome? 'ana').to eql true
     end
     it 'returns true when string is not a palindrome, like "aero"' do
-      expect(gen.palindrome? 'aero').to be_false
+      expect(gen.palindrome? 'aero').to eql false
     end
     it 'returns false with string "atgga"' do
-      expect(gen.palindrome? 'atgga').to be_false
+      expect(gen.palindrome? 'atgga').to eql false
     end
     it 'returns false with string "gtaag"' do
-      expect(gen.palindrome? 'gtaag').to be_false
+      expect(gen.palindrome? 'gtaag').to eql false
     end
   end
 end
