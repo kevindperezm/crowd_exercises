@@ -1,4 +1,4 @@
-# Temperatute calculator
+# Temperature calculator
 
 ## Description
 Write a class that can convert from Celsius to Fahrenheit
