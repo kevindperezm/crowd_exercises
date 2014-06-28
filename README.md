@@ -9,7 +9,7 @@ A list of exercises stored here:
 * <b>[Missiles](https://github.com/kevindperezm/crowd_exercises/tree/master/missiles)</b>: An exercise where we're programming an anti-missile system that can only decrease its altitude.
 * <b>[Recorder](https://github.com/kevindperezm/crowd_exercises/tree/master/recorder)</b>: A class that records calls to methods and plays them against a
 given object.
-* <b>[Temperature calculator](https://github.com/kevindperezm/crowd_exercises/tree/master/calculator)</b>: Write a class that can convert from Celsius to Fahrenheit.
+* <b>[Temperature calculator](https://github.com/kevindperezm/crowd_exercises/tree/master/temperature)</b>: Write a class that can convert from Celsius to Fahrenheit.
 
 Authors
 -------
