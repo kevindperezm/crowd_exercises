@@ -1,5 +1,6 @@
 require_relative 'destruction_strategies/multiple_tree'
 require_relative 'input/file'
+require_relative 'input/impossible_to_parse'
 require_relative 'output/file'
 
 class MissileDestroyer
@@ -16,7 +17,13 @@ class MissileDestroyer
   end
 
   def load_missiles_from_file(path)
-    missiles = Input::File.new(path).missiles
+    begin
+      @missiles = Input::File.new(path).missiles
+      update_strategy
+      @missiles
+    rescue Input::ImpossibleToParse
+      false
+    end
   end
 
   def write_route_to_file(route, path)
@@ -25,6 +32,12 @@ class MissileDestroyer
 
   def missiles=(missiles)
     @missiles = missiles
+    update_strategy
+  end
+
+  private
+
+  def update_strategy
     @strategy && @strategy = @strategy.class.new(missiles)
   end
 end
